@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="#/home">home</router-link>
+        <router-link to="#/about">about</router-link>
+        <router-link to="#/book">book</router-link>
+
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js
+    "></script>
+    <script src="./vue-router.js"></script>
+    <script>
+        const home = {
+            template: '<div>home</div>'
+        }
+
+        const about = {
+            template: `<div>about</div>`
+        }
+
+        const book = {
+            template: `<div>book</div>`
+        }
+
+        const routes = [ {
+                path: '/home',
+                component: home
+            },
+            {
+                path: '/about',
+                component: about
+            },
+            {
+                path: '/book',
+                component: book
+            },
+        ]
+        const router = new VueRouter( Vue, {
+            routes
+        } )
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
