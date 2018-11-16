@@ -9,7 +9,7 @@ class VueRouter {
         // 让当前的route变成响应式的
         this.app = new Vue( {
             data: {
-                currentRoute: "#/home"
+                currentRoute: "#/"
             }
         });
         
@@ -18,10 +18,10 @@ class VueRouter {
     }
 
     init() {
-        window.addEventListener("load", this.onHashChange.bind(this), false);
+        window.addEventListener("load", this.onHashChange, false);
         window.addEventListener(
             "hashchange",
-            this.onHashChange.bind(this),
+            this.onHashChange,
             false
         );
     }
@@ -57,6 +57,7 @@ class VueRouter {
     }
 
     onHashChange() {
+        console.log('this',this)
         this.app.currentRoute = this.getHash();
     }
 }

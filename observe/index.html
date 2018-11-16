@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./observe.js"></script>
+    <script src="./watch.js"></script>
+    <script src="./dep.js"></script>
+
+    <script>
+        class Vue {
+            constructor( options ) {
+                this._data = options.data()
+                observe( this._data )
+                new Watch()
+                this._data.msg
+
+            }
+        }
+
+        var app = new Vue( {
+            data() {
+                return {
+                    msg: 1,
+                    age: 18,
+                    person: {
+                        name: 'ziwei'
+                    }
+                }
+            }
+        } )
+        app._data.msg = 2
+    </script>
+</body>
+
+</html>
