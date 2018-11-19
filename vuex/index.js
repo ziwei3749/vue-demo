@@ -1,3 +1,4 @@
+// https://github.com/jinzhanye/diy-vuex/blob/master/src/vuex/index.js
 class Store {
     constructor(options) {
         let { state, mutations } = options;
@@ -8,7 +9,9 @@ class Store {
 
     resetStore(store) {
         store._vm = new Vue({
-            data: this.state
+            data : {
+                state: this.state
+            } 
         });
     }
 
